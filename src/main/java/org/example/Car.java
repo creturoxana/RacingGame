@@ -2,6 +2,7 @@ package org.example;
 
 public class Car {
 
+  //instance variables
   String make;
   String model;
   String color;
@@ -11,5 +12,8 @@ public class Car {
   double totalTraveledDistance;
   boolean damaged;
   int doorCount;
+
+  //"has-a" relationship (aggregation)
+  Engine engine;
 
 }
