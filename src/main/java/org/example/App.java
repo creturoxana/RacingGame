@@ -5,7 +5,6 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Welcome to the Racing Game!" );
 
         Car carReference = new Car();
         carReference.make = "Skoda";
@@ -22,6 +21,9 @@ public class App
         carReference.engine = engine1;
 
         double currentDistance = carReference.accelerate(60,1);
+
+        Mechanic mechanic = new Mechanic();
+        mechanic.repair(carReference);
 
         Car car2 = new Car();
         car2.make = "Mercedes";
