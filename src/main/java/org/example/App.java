@@ -20,5 +20,14 @@ public class App
         engine1.capacity = 1900;
 
         carReference.engine = engine1;
+
+        double currentDistance = carReference.accelerate(60,1);
+
+        Car car2 = new Car();
+        car2.make = "Mercedes";
+        car2.model = "CLS";
+        car2.color = "black";
+
+        double car2Distance = car2.accelerate(120, 3);
     }
 }
