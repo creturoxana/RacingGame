@@ -15,8 +15,11 @@ public class Vehicle {
   double totalTraveledDistance;
   boolean damaged;
 
-  public Vehicle() {
-    totalVehicleCount++;
+  public Vehicle() { totalVehicleCount++; }
+
+  //method overloading
+  public double accelerate (double speed){
+    return accelerate(speed,1);
   }
 
   public double accelerate (double speed, double durationInHours){
