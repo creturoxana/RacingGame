@@ -3,17 +3,17 @@ package org.example;
 public class Vehicle {
 
   //class variable / static variable
-  static int totalVehicleCount;
+  private static int totalVehicleCount;
 
   //instance variables
-  String make;
-  String model;
-  String color;
-  double mileage;
-  double fuelLevel;
-  double maxSpeed;
-  double totalTraveledDistance;
-  boolean damaged;
+  private String make;
+  private String model;
+  private String color;
+  private double mileage;
+  private double fuelLevel;
+  private double maxSpeed;
+  protected double totalTraveledDistance;
+  private boolean damaged;
 
   public Vehicle() { totalVehicleCount++; }
 
@@ -56,5 +56,88 @@ public class Vehicle {
     System.out.println("Remaining fuel: " + fuelLevel);
 
     return distance;
+  }
+
+  public String getMake() {
+    return make;
+  }
+
+  public void setMake(String make) {
+    this.make = make;
+  }
+
+  public String getModel() {
+    return model;
+  }
+
+  public void setModel(String model) {
+    this.model = model;
+  }
+
+  public String getColor() {
+    return color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
+  }
+
+  public double getMileage() {
+    return mileage;
+  }
+
+  public void setMileage(double mileage) {
+    this.mileage = mileage;
+  }
+
+  public double getFuelLevel() {
+    return fuelLevel;
+  }
+
+  public void setFuelLevel(double fuelLevel) {
+    this.fuelLevel = fuelLevel;
+  }
+
+  public double getMaxSpeed() {
+    return maxSpeed;
+  }
+
+  public void setMaxSpeed(double maxSpeed) {
+    this.maxSpeed = maxSpeed;
+  }
+
+  public double getTotalTraveledDistance() {
+    return totalTraveledDistance;
+  }
+
+  public void setTotalTraveledDistance(double totalTraveledDistance) {
+    this.totalTraveledDistance = totalTraveledDistance;
+  }
+
+  public boolean isDamaged() {
+    return damaged;
+  }
+
+  public void setDamaged(boolean damaged) {
+    this.damaged = damaged;
+  }
+
+  //read-only variable
+  public static int getTotalVehicleCount() {
+    return totalVehicleCount;
+  }
+
+  @Override
+  public String toString() {
+    return "Vehicle{" +
+        "make='" + make + '\'' +
+        ", model='" + model + '\'' +
+        ", color='" + color + '\'' +
+        ", mileage=" + mileage +
+        ", fuelLevel=" + fuelLevel +
+        ", maxSpeed=" + maxSpeed +
+        ", totalTraveledDistance=" + totalTraveledDistance +
+        ", damaged=" + damaged +
+        '}';
   }
 }
