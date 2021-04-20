@@ -58,6 +58,14 @@ public class Vehicle {
     return distance;
   }
 
+    protected Vehicle reset(){
+      totalTraveledDistance = 0;
+      fuelLevel = 0;
+      damaged = false;
+
+      return this;
+    }
+
   public String getMake() {
     return make;
   }
