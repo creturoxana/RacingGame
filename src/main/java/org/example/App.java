@@ -1,20 +1,39 @@
 package org.example;
 
 
-public class App 
+import org.example.cheater.CheatingVehicle;
+
+public class App
 {
     public static void main( String[] args )
     {
-       Game game = new Game();
-       game.start();
+//       Game game = new Game();
+//       game.start();
 
-       Vehicle vehicle1 = new Vehicle();
-       vehicle1.setMake("VW");
-       vehicle1.setModel("Golf");
-       vehicle1.setColor("red");
+//      //polymorphism
+//      Vehicle vehicle = new CheatingVehicle();
+//      vehicle.setMake("Cheating vehicle");
+//
+//      //object type determines method implementation
+//      vehicle.accelerate(60,1);
+//      System.out.println("Accelerate with 1 param");
+//      vehicle.accelerate(60);
+//
+//      //variable type determines what methods can be invoked
+//      //type casting
+//      ((CheatingVehicle) vehicle).cheat();
 
-       vehicle1.accelerate(60,1);
-
+      //linia de mai sus pe larg
+//      CheatingVehicle cheatingVehicle = (CheatingVehicle) vehicle;
+//      cheatingVehicle.cheat();
+//
+//       Vehicle vehicle1 = new Vehicle();
+//       vehicle1.setMake("VW");
+//       vehicle1.setModel("Golf");
+//       vehicle1.setColor("red");
+//
+//       vehicle1.accelerate(60,1);
+//
 
         Engine engine1 = new Engine();
         engine1.manufacturer = "VW";
