@@ -1,7 +1,7 @@
 package org.example;
 
 
-import org.example.cheater.CheatingVehicle;
+import org.example.service.Game;
 
 public class App
 {
@@ -35,11 +35,11 @@ public class App
 //       vehicle1.accelerate(60,1);
 //
 
-        Engine engine1 = new Engine();
-        engine1.manufacturer = "VW";
-        engine1.capacity = 1900;
-
-        Car car = new Car(engine1);
+//        Engine engine1 = new Engine();
+//        engine1.manufacturer = "VW";
+//        engine1.capacity = 1900;
+//
+//        Car car = new Car(engine1);
 //        car.make = "Skoda";
 //        car.model = "Fabia";
 //        car.mileage = 7.5;
@@ -47,10 +47,10 @@ public class App
 //        car.color = "red";
 //        car.maxSpeed = 300;
 
-        Engine engine = new Engine();
-        engine.manufacturer = "Renault";
-
-        AutoVehicle autoVehicle = new AutoVehicle(engine);
+//        Engine engine = new Engine();
+//        engine.manufacturer = "Renault";
+//
+//        AutoVehicle autoVehicle = new AutoVehicle(engine);
 
 //
 //        carReference.engine = engine1;

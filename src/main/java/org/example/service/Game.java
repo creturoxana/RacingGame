@@ -1,28 +1,27 @@
-package org.example;
+package org.example.service;
 
-import java.util.Scanner;
+import org.example.controller.StandardInputController;
+import org.example.domain.Track;
 
 public class Game {
 
   private Track[] tracks = new Track[3];
+
+  private StandardInputController controller = new StandardInputController();
 
   public void start() {
 
     System.out.println("Welcome to the Racing Game!");
     System.out.println("\uD83D\uDE97");
 
-    int playerCount = getPlayerCountFromUser();
+    int playerCount = controller.getPlayerCountFromUser();
     System.out.println("Playe count: " + playerCount);
 
     initializeTracks();
 
   }
 
-  private int getPlayerCountFromUser() {
-    System.out.println("Enter number of players: ");
-    Scanner scanner = new Scanner(System.in);
-    return scanner.nextInt();
-  }
+
 
   private void initializeTracks() {
     Track track1 = new Track();

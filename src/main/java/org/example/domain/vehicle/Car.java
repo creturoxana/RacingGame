@@ -1,4 +1,4 @@
-package org.example;
+package org.example.domain.vehicle;
 
 // "is-a" relationship (inheritance)
 public class Car extends AutoVehicle {
