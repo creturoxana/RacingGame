@@ -1,31 +1,29 @@
 package org.example.controller;
 
-import java.util.Scanner;
+import org.example.controller.utils.ScannerUtils;
 
 public class StandardInputController {
 
   public int getPlayerCountFromUser() {
     System.out.println("Enter number of players: ");
-    Scanner scanner = new Scanner(System.in);
-    return scanner.nextInt();
+    return ScannerUtils.readNextSingleInt();
   }
 
   public int getTrackNumberFromUser() {
     System.out.println("Enter number of track: ");
-    Scanner scanner = new Scanner(System.in);
-    return scanner.nextInt();
+    return ScannerUtils.readNextSingleInt();
+
   }
 
   public String getVehicleMakeFromUser() {
     System.out.println("Please enter vehicle make:");
-    Scanner scanner = new Scanner(System.in);
-    return scanner.nextLine();
+    return ScannerUtils.SCANNER.nextLine();
+
   }
 
   public double getAccelerationSpeedFromUser() {
     System.out.println("Please enter acceleration speed:");
-    Scanner scanner = new Scanner(System.in);
-    return scanner.nextDouble();
+    return ScannerUtils.readNextSingleDouble();
   }
 
 }
