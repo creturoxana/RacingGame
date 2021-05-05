@@ -1,6 +1,8 @@
 package org.example.domain.vehicle;
 
-public class Vehicle {
+import org.example.domain.Mobile;
+
+public abstract class  Vehicle implements Mobile {
 
   //class variable / static variable
   private static int totalVehicleCount;
@@ -29,8 +31,8 @@ public class Vehicle {
       return 0;
     }
 
-    if (damaged) {
-      System.out.println("The vehicle is damaged. You cannot accelerate.");
+    if (!canMove()) {
+      System.out.println("You cannot accelerate.");
       return 0;
     }
 
@@ -58,7 +60,17 @@ public class Vehicle {
     return distance;
   }
 
-    protected Vehicle reset(){
+  @Override
+  public String getName() {
+    return make;
+  }
+
+  @Override
+  public boolean canMove() {
+    return fuelLevel > 0 && !damaged;
+  }
+
+  protected Vehicle reset(){
       totalTraveledDistance = 0;
       fuelLevel = 0;
       damaged = false;

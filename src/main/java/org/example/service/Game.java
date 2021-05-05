@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import org.example.controller.StandardInputController;
+import org.example.domain.Mobile;
 import org.example.domain.Track;
+import org.example.domain.vehicle.Car;
 import org.example.domain.vehicle.Vehicle;
 
 public class Game {
@@ -35,7 +37,7 @@ public class Game {
     for (int i = 1; i<= playerCount; i++){
       System.out.println("Preparing player " + i + " for the race...");
 
-      Vehicle vehicle = new Vehicle();
+      Vehicle vehicle = new Car();
       vehicle.setMake(controller.getVehicleMakeFromUser());
       vehicle.setFuelLevel(30);
       vehicle.setMaxSpeed(300);
@@ -49,9 +51,9 @@ public class Game {
     System.out.println("New round");
 
     //enhanced for (for-each)
-    for (Vehicle competitor : competitors) {
+    for (Mobile competitor : competitors) {
       double speed = controller.getAccelerationSpeedFromUser();
-      competitor.accelerate(speed);
+      competitor.accelerate(speed,1);
     }
   }
 
