@@ -1,6 +1,7 @@
 package org.example.service;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import org.example.controller.StandardInputController;
@@ -8,6 +9,7 @@ import org.example.domain.Mobile;
 import org.example.domain.Track;
 import org.example.domain.vehicle.Car;
 import org.example.domain.vehicle.Vehicle;
+import org.example.exception.InvalidOptionSelectedException;
 
 public class Game {
 
@@ -16,7 +18,7 @@ public class Game {
 
   private StandardInputController controller = new StandardInputController();
 
-  public void start() {
+  public void start() throws InvalidOptionSelectedException {
 
     System.out.println("Welcome to the Racing Game!");
     System.out.println("\uD83D\uDE97");
@@ -57,9 +59,15 @@ public class Game {
     }
   }
 
-  private Track getSelectedTrack() {
-    int optionNumber = controller.getTrackNumberFromUser();
-    return tracks[optionNumber - 1];
+  private Track getSelectedTrack() throws InvalidOptionSelectedException {
+    try {
+      int optionNumber = controller.getTrackNumberFromUser();
+      return tracks[optionNumber - 1];
+    } catch (InputMismatchException e) {
+        throw new RuntimeException("Invalid track number entered.");
+    } catch (ArrayIndexOutOfBoundsException e) {
+        throw new InvalidOptionSelectedException();
+    }
   }
 
   private void initializeTracks() {

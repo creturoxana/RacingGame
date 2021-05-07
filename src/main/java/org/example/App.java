@@ -1,12 +1,12 @@
 package org.example;
 
 
+import org.example.exception.InvalidOptionSelectedException;
 import org.example.service.Game;
 
 public class App
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) throws InvalidOptionSelectedException {
        Game game = new Game();
        game.start();
 
