@@ -39,6 +39,10 @@ public class Game {
       playOneRound();
     }
 
+    if(winnerNotKnown) {
+      System.out.println("Game Over. There's no winner.");
+    }
+
   }
 
 
@@ -58,7 +62,9 @@ public class Game {
   }
 
   private void playOneRound() {
+    System.out.println();
     System.out.println("New round");
+    System.out.println();
 
     //enhanced for (for-each)
     for (Mobile competitor : competitors) {
@@ -66,7 +72,9 @@ public class Game {
         outOfRaceCompetitors.add(competitor);
         continue;
       }
+      System.out.println();
       double speed = controller.getAccelerationSpeedFromUser();
+
       competitor.accelerate(speed,1);
 
       if(competitor.getTotalTraveledDistance() >= selectedTrack.getLength()) {
