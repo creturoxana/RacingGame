@@ -1,8 +1,10 @@
 package org.example.service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 import org.example.controller.StandardInputController;
 import org.example.domain.Mobile;
@@ -14,7 +16,10 @@ import org.example.exception.InvalidOptionSelectedException;
 public class Game {
 
   private Track[] tracks = new Track[3];
-  private List<Vehicle> competitors = new ArrayList<>();
+  private Track selectedTrack;
+  private List<Mobile> competitors = new ArrayList<>();
+  private Set<Mobile> outOfRaceCompetitors = new HashSet<>();
+  private boolean winnerNotKnown = true;
 
   private StandardInputController controller = new StandardInputController();
 
@@ -26,10 +31,13 @@ public class Game {
 
     initializeTracks();
 
-    Track selectedTrack = getSelectedTrack();
-    System.out.println("You have selected: " + selectedTrack.getName());
+    selectedTrack = getSelectedTrack();
 
     initializeCompetitors();
+
+    while( winnerNotKnown && outOfRaceCompetitors.size() < competitors.size()) {
+      playOneRound();
+    }
 
   }
 
@@ -54,8 +62,18 @@ public class Game {
 
     //enhanced for (for-each)
     for (Mobile competitor : competitors) {
+      if(!competitor.canMove()){
+        outOfRaceCompetitors.add(competitor);
+        continue;
+      }
       double speed = controller.getAccelerationSpeedFromUser();
       competitor.accelerate(speed,1);
+
+      if(competitor.getTotalTraveledDistance() >= selectedTrack.getLength()) {
+        System.out.println("Congratz! The winnner is: " + competitor.getName());
+        winnerNotKnown = false;
+        break;
+      }
     }
   }
 
