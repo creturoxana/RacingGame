@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import java.util.InputMismatchException;
 import org.example.controller.utils.ScannerUtils;
 
 public class StandardInputController {
@@ -23,7 +24,14 @@ public class StandardInputController {
 
   public double getAccelerationSpeedFromUser() {
     System.out.println("Please enter acceleration speed:");
-    return ScannerUtils.readNextSingleDouble();
+    try {
+      return ScannerUtils.readNextSingleDouble();
+    } catch (InputMismatchException e) {
+      System.out.println("You have entered an invalid value. Please try again.");
+
+      //recursion
+      return getAccelerationSpeedFromUser();
+    }
   }
 
 }
